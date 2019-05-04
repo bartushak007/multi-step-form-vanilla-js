@@ -11,6 +11,11 @@ document.querySelectorAll(".resident-form__container").forEach(container => {
 
   let currentStep = 0;
 
+  const toggleClassName = ({classList}) => (oldValue, newValue) => {
+    classList.contains(oldValue) && classList.remove(oldValue);            
+    classList.add(newValue);
+  }
+
   const getAllFormElements = (formElementsArray, container) => {
     let formElements = [];
 
@@ -56,13 +61,31 @@ document.querySelectorAll(".resident-form__container").forEach(container => {
           "js-live",
           "js-first",
           "js-last"
-        ].forEach(selector => {
-          if (target.classList.contains(`${selector}-input`)) {
+        ].forEach(selector => {         
+
+          const useToggleClassName = toggleClassName(container.querySelector('.card__gender-block'));
+          const  targetClassList = target.classList;
+          
+          if (target.classList.contains(`${selector}-input`)) {      
+            
+           
+            if (targetClassList.contains('radio-female')) {
+              useToggleClassName('card__gender-block--male', 'card__gender-block--female');  
+              container.querySelector(`.${selector}-text`).innerText = 'women';            
+            }
+
+            if (targetClassList.contains('radio-male')) {
+              useToggleClassName('card__gender-block--female', 'card__gender-block--male');
+              container.querySelector(`.${selector}-text`).innerText = 'men';   
+            }
+
+            if(!targetClassList.contains('radio-male') && !targetClassList.contains('radio-female')){
+
             const newValue = value
               ? value.charAt(0).toUpperCase() + value.slice(1)
               : "*****";
 
-            container.querySelector(`.${selector}-text`).innerText = newValue;
+            container.querySelector(`.${selector}-text`).innerText = newValue;}
           }
         });
       });
