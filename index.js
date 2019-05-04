@@ -1,13 +1,23 @@
 document.querySelectorAll(".resident-form__container").forEach(container => {
   const formSelector = container.querySelector(".resident-form__form");
   const progressBar = container.querySelector(".resident-form__progress-bar");
-  const progBarPercent = container.querySelector(
-    ".resident-form__progress-bar-percent"
-  );
+  const progBarPercent = container.querySelector(".resident-form__progress-bar-percent");
   const buttonNext = container.querySelector(".resident-form__button-next");
   const buttonPrev = container.querySelector(".resident-form__button-prev");
   const length = formSelector.children.length;
   const progressSteps = [0, 15, 35, 45, 75, 85, 90, 99, 100];
+  const cardFields = [
+    "js-birthdate",
+    "js-gender",
+    "js-english",
+    "js-education",
+    "js-incam",
+    "js-birth",
+    "js-live",
+    "js-first",
+    "js-last"
+  ];
+  const formElemTypes = ['input', 'select'];
 
   let currentStep = 0;
 
@@ -31,7 +41,7 @@ document.querySelectorAll(".resident-form__container").forEach(container => {
   };
 
   const isValid = current => {
-    const inputs = getAllFormElements(['input', 'select'], current);
+    const inputs = getAllFormElements(formElemTypes, current);
 
     return Array.prototype.every.call(inputs, input => {
       return input.type !== "submit" ? !!input.value : true;
@@ -46,57 +56,35 @@ document.querySelectorAll(".resident-form__container").forEach(container => {
     progBarPercent.innerText = progressSteps[currentStep] + "%";
   };
 
-  const inputslistener = () => {
-    getAllFormElements(['input', 'select'], container).forEach(input => {
-      // input.required = false;
-
-      input.addEventListener("input", ({ target, target: { value } }) => {
-        [
-          "js-birthdate",
-          "js-gender",
-          "js-english",
-          "js-education",
-          "js-incam",
-          "js-birth",
-          "js-live",
-          "js-first",
-          "js-last"
-        ].forEach(selector => {         
-
-          const useToggleClassName = toggleClassName(container.querySelector('.card__gender-block'));
-          const  targetClassList = target.classList;
-          
-          if (target.classList.contains(`${selector}-input`)) {      
-            
-           
-            if (targetClassList.contains('radio-female')) {
-              useToggleClassName('card__gender-block--male', 'card__gender-block--female');  
-              container.querySelector(`.${selector}-text`).innerText = 'women';            
-            }
-
-            if (targetClassList.contains('radio-male')) {
-              useToggleClassName('card__gender-block--female', 'card__gender-block--male');
-              container.querySelector(`.${selector}-text`).innerText = 'men';   
-            }
-
-            if(!targetClassList.contains('radio-male') && !targetClassList.contains('radio-female')){
-
-            const newValue = value
-              ? value.charAt(0).toUpperCase() + value.slice(1)
-              : "*****";
-
-            container.querySelector(`.${selector}-text`).innerText = newValue;}
-          }
-        });
-      });
-    });
-  };
-
   const nextStep = (func, positionLeft) => {
     formSelector.style.transform = `translateX(${func(
       parseFloat(positionLeft.length ? positionLeft.slice(11) : positionLeft)
     )}%)`;
   };
+
+  const inputslistener = () => {
+    getAllFormElements(formElemTypes, container).forEach(input => {
+      // input.required = false;
+
+      input.addEventListener("input", ({ target, target: { value } }) => {
+        cardFields.forEach(selector => {
+          const useToggleClassName = toggleClassName(container.querySelector('.card__gender-block'));
+          const targetClassList = target.classList;
+
+          if (target.classList.contains(`${selector}-input`)) { 
+            const newValue = value
+              ? value.charAt(0).toUpperCase() + value.slice(1)
+              : "*****";
+
+            targetClassList.contains('radio-female') && useToggleClassName('card__gender-block--male', 'card__gender-block--female');  
+            targetClassList.contains('radio-male') && useToggleClassName('card__gender-block--female', 'card__gender-block--male');            
+
+            container.querySelector(`.${selector}-text`).innerText = newValue;
+          }            
+        });
+      });
+    });
+  };  
 
   inputslistener();
 
@@ -125,3 +113,8 @@ document.querySelectorAll(".resident-form__container").forEach(container => {
     }
   });
 });
+
+
+
+
+document.querySelector('.form').addEventListener('submit', (e)=>{e.preventDefault(); console.log(e)})

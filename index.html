@@ -110,69 +110,110 @@
           </div>
         </div>
 
-      <form action="">
+      <form action="" class="form">
         <div class="resident-form__form-container">
           
 
           <div class="resident-form__form">
-            <div class="resident-form__firstForm">
+            <div class="resident-form__step-block">
               
               
             </div>
-            <div class="resident-form__secondForm">
+            <div class="resident-form__step-block">
               <h3>What is your Full Name?</h3>
               <!-- placeholder -->
               <input type="text" value="first" class="resident-form__form-element js-first-input" />
               <input type="text" value="last" class="resident-form__form-element js-last-input" />              
             </div>
-            <div class="resident-form__thirdForm">
+            <div class="resident-form__step-block">
               <h3>What is you gender</h3>  
                           
-              <input type="radio" id="gender-male" name="gender" class="resident-form__radio-male-input js-gender-input radio-male"/>
+              <input type="radio" id="gender-male" value="men" name="gender" class="resident-form__radio-male-input js-gender-input radio-male"/>
               <label for="gender-male" class="resident-form__label-male"></label>
               
-              <input type="radio" name="gender" id="gender-female" class="resident-form__radio-female-input js-gender-input radio-female"/>
+              <input type="radio" value="women" name="gender" id="gender-female" class="resident-form__radio-female-input js-gender-input radio-female"/>
               <label for="gender-female"class="resident-form__label-female"></label>
-              
+
               <h3>Date of Birth</h3>
               <input type="text" value="birthdate" class="resident-form__form-element js-birthdate-input" /></div>
-            <div class="resident-form__firstForm">
+            <div class="resident-form__step-block">
               <h3>What is your level of English?</h3>
               
-              <input type="text" value="english" class="resident-form__form-element js-english-input" />
+              <!-- <input type="text" value="english" class="resident-form__form-element js-english-input" /> -->
+
+              <input type="radio" value="none" id="english-none" name="english" class="resident-form__radio-none-english js-english-input"/>
+              <label for="english-none" class="resident-form__label-radio resident-form__label-none-english" value='none'>None</label>
+
+              <input type="radio" value="low" id="english-low" name="english" class="resident-form__radio-low-english js-english-input"/>
+              <label for="english-low" class="resident-form__label-radio resident-form__label-low-english" value='low'>Low</label>
+
+              <input type="radio" value="middle" id="english-middle" name="english" class="resident-form__radio-middle-english js-english-input"/>
+              <label for="english-middle" class="resident-form__label-radio resident-form__label-middle-english" value='middle'>Middle</label>
+              
+              <input type="radio" value="hight" id="english-hight" name="english" class="resident-form__radio-hight-english js-english-input"/>
+              <label for="english-hight" class="resident-form__label-radio resident-form__label-hight-english" value='hight'>Hight</label>
+
+              <input type="radio" value="native" id="english-native" name="english" class="resident-form__radio-native-english js-english-input"/>
+              <label for="english-native" class="resident-form__label-radio resident-form__label-native-english" value='native'>Native</label>
+              
               
             </div>
-            <div class="resident-form__secondForm">
+            <div class="resident-form__step-block">
               <h3>Have you ever been to the United State?</h3>
+
+              <input type="radio" value="In the last 2 years" id="been-last-two" name="been" class="resident-form__radio-last-two-been js-been-input"/>
+              <label for="been-last-two" class="resident-form__label-radio resident-form__label-last-two-been">In the last 2 years</label>
+
+              <input type="radio" value="In the last 5 years" id="been-last-five" name="been" class="resident-form__radio-last-five-been js-been-input"/>
+              <label for="been-last-five" class="resident-form__label-radio resident-form__label-last-five-been">In the last 5 years</label>
+
+              <input type="radio" value="Over 10 years ago" id="been-last-ten" name="been" class="resident-form__radio-last-ten-been js-been-input"/>
+              <label for="been-last-ten" class="resident-form__label-radio resident-form__label-last-ten-been">Over 10 years ago</label>
+
+              <input type="radio" value="no" id="been-no" name="been" class="resident-form__radio-no-been js-been-input"/>
+              <label for="been-no" class="resident-form__label-radio resident-form__label-no-been">No</label>
               
             </div>
-            <div class="resident-form__thirdForm">
+            <div class="resident-form__step-block">
               <h3>What is your level of Education?</h3>
-              <input type="text" value="education" class="resident-form__form-element js-education-input" />
-              
+              <select class="resident-form__select js-education-input">
+                <option>Пункт 11</option>
+                <option>Пункт 22</option>
+              </select>
             </div>
-            <div class="resident-form__firstForm">
+            <div class="resident-form__step-block">
               <h3>What is your Income level?</h3>           
-              <select class="js-incam-input">
+              <select class="js-incam-input resident-form__select">
                 <option>Пункт 1</option>
                 <option>Пункт 2</option>
               </select>
-              
             </div>
-            <div class="resident-form__secondForm">
+            <div class="resident-form__step-block">
               <h3>What is your Country of Birth?</h3>
-              <input type="text" value="birth" class="resident-form__form-element js-birth-input" />
+              <select class="resident-form__select js-birth-input">
+                <option>Пункт a</option>
+                <option>Пункт b</option>
+              </select>
               <h3>How long have you been living in your current country of residence?</h3>
+              <select class="resident-form__select">
+                <option>Пункт x</option>
+                <option>Пункт y</option>
+              </select>
             </div>
-            <div class="resident-form__thirdForm">
+            <div class="resident-form__step-block">
               <h3>Phone number</h3>
+              <select class="resident-form__select resident-form__select--phone">
+                <option>+380</option>
+                <option>+456</option>
+              </select>
+              <input type="phone" class="resident-form__form-element resident-form__form-element--phone">
               <h3>E-mail address</h3>
-              <input type="submit" />
+              <input type="email" class="resident-form__form-element">
+              <input type="submit" class="resident-form__submit"/>
             </div>
           </div>
         </div>
       </form>
-
       <div class="resident-form__buttons-control">
         <button class="resident-form__button-prev">prev</button>
         <button class="resident-form__button-next">next</button>
