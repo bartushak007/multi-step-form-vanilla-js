@@ -110,14 +110,10 @@
           </div>
         </div>
 
-      <form action="" class="form">
+      <form action="" class="form" name="resident">
         <div class="resident-form__form-container">
-          
-
           <div class="resident-form__form">
-            <div class="resident-form__step-block">
-              
-              
+            <div class="resident-form__step-block">              
             </div>
             <div class="resident-form__step-block">
               <h3>What is your Full Name?</h3>
@@ -176,33 +172,40 @@
             </div>
             <div class="resident-form__step-block">
               <h3>What is your level of Education?</h3>
-              <select class="resident-form__select js-education-input">
+              <select class="resident-form__select js-education-input" name="education">
+                <option></option>
                 <option>Пункт 11</option>
                 <option>Пункт 22</option>
               </select>
             </div>
             <div class="resident-form__step-block">
               <h3>What is your Income level?</h3>           
-              <select class="js-incam-input resident-form__select">
+              <select class="js-incam-input resident-form__select" name="incam">
+                <option></option>
                 <option>Пункт 1</option>
                 <option>Пункт 2</option>
+                <option>Пункт 3</option>
+                <option>Пункт 4</option>
               </select>
             </div>
             <div class="resident-form__step-block">
               <h3>What is your Country of Birth?</h3>
-              <select class="resident-form__select js-birth-input">
+              <select class="resident-form__select js-birth-input" name="birth">
+                <option></option>
                 <option>Пункт a</option>
                 <option>Пункт b</option>
               </select>
               <h3>How long have you been living in your current country of residence?</h3>
-              <select class="resident-form__select">
+              <select class="resident-form__select" name="been">
+                <option></option>
                 <option>Пункт x</option>
                 <option>Пункт y</option>
               </select>
             </div>
             <div class="resident-form__step-block">
               <h3>Phone number</h3>
-              <select class="resident-form__select resident-form__select--phone">
+              <select class="resident-form__select resident-form__select--phone" name="phone-code">
+                <option></option>
                 <option>+380</option>
                 <option>+456</option>
               </select>

@@ -80,6 +80,114 @@
   width: 135px;
 }
 
+.add-arrow {
+  position: relative;
+}
+
+.add-arrow:after {
+  position: absolute;
+  content: "<<";
+  top: 20px;
+  right: 1px;
+}
+
+.add-arrow--last:after {
+  content: "<<<<<<<<<<<<<<<";
+}
+
+.resident-form__form-container [type=radio] {
+  position: absolute;
+  width: 0;
+  height: 0;
+  right: 3000px;
+  opacity: 0;
+}
+
+.resident-form__radio-male-input:checked + .resident-form__label-male,
+.resident-form__radio-female-input:checked + .resident-form__label-female{
+  opacity: 0.5;
+}
+
+.resident-form__label-male,
+.resident-form__label-female {
+  border-radius: 15px;
+  display: inline-block;
+  background-color: #ffffff;
+  background-image: url('male.png'); 
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 120px;
+  height: 120px;
+}
+
+.resident-form__label-female {  
+  background-image: url('female.png');
+}
+
+.resident-form__label-male:hover,
+.resident-form__label-female:hover {
+  transition: 0.5s;
+  opacity: 0.5;
+}
+
+.resident-form__label-radio {
+  white-space: nowrap;
+  display: inline-block;
+  transition: 0.5s;
+  margin: 20px 5px;
+  border-radius: 10px;
+  background: transparent;
+  color: #4a4a4a;  
+  padding: 2px 8px;
+  font-family: Arial;
+  font-size: 18px;
+  letter-spacing: 0;
+  cursor: pointer;
+}
+
+.resident-form__label-radio:hover {
+  background: #ff0000;
+  color: #ffffff;
+}
+
+.resident-form__radio-none-english:checked + .resident-form__label-none-english, 
+.resident-form__radio-low-english:checked + .resident-form__label-low-english,
+.resident-form__radio-middle-english:checked + .resident-form__label-middle-english,
+.resident-form__radio-hight-english:checked + .resident-form__label-hight-english,
+.resident-form__radio-native-english:checked + .resident-form__label-native-english,
+.resident-form__radio-last-two-been:checked + .resident-form__label-last-two-been,
+.resident-form__radio-last-five-been:checked + .resident-form__label-last-five-been,
+.resident-form__radio-last-ten-been:checked + .resident-form__label-last-ten-been,
+.resident-form__radio-no-been:checked + .resident-form__label-no-been {
+  background: #ff0000;
+  color: #ffffff;
+} 
+
+.resident-form__select {
+  padding: 5px;
+  margin: 20px 0;  
+  border-radius: 10px;
+  border: 1px solid #707070;
+  color: #4a4a4a;
+  width: 235px;
+  height: 35px;    
+}
+.resident-form__select--phone {  
+  width: 65px;  
+}
+
+.resident-form__select:focus {
+  outline: 0;
+}
+
+.resident-form__submit {
+  display: block;
+  margin: 0 auto;
+}
+
+/* card  card card card*/
+
 .card {
   width: 500px;
   font-family: Arial;  
@@ -94,7 +202,7 @@
 }
 
 .card__container {
-  width: 500px;
+  width: 100%;
   height: 318px;
   background-image: linear-gradient(to right, #3acc72c4 10%, #b5f9e4d1 64%);
   position: relative;
@@ -138,6 +246,7 @@
 }
 
 .card__gender-block {
+  /* transition: 1s; */
   border-radius: 15px;
   background-color: #ffffffd3;  
   background-size: 80%;
@@ -219,111 +328,57 @@
   letter-spacing: 3.25px;
 }
 
-.add-arrow {
-  position: relative;
+@media screen and (max-width: 540px) {
+  .card {
+    width: 100%;    
+  }
+
+  .card__container {
+    width: 100%;
+  }
 }
 
-.add-arrow:after {
-  position: absolute;
-  content: "<<";
-  top: 20px;
-  right: 1px;
-}
+@media screen and (max-width: 475px) {
+  .card h3 {
+    font-size: 12px;  
+  }
 
-.add-arrow--last:after {
-  content: "<<<<<<<<<<<<<<<";
-}
+  .card__title {
+    font-size: 10px;  
+  }
 
-.resident-form__form-container [type=radio] {
-  position: absolute;
-  width: 0;
-  height: 0;
-  right: 3000px;
-  opacity: 0;
-}
-
-.resident-form__radio-male-input:checked + .resident-form__label-male,
-.resident-form__radio-female-input:checked + .resident-form__label-female{
-  opacity: 0.7;
-}
-
-.resident-form__label-male,
-.resident-form__label-female {
-  border-radius: 15px;
-  display: inline-block;
-  background-color: #ffffff;
-  background-image: url('male.png'); 
-  background-size: 80%;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 120px;
-  height: 120px;
-}
-
-.resident-form__label-female {
+  .card__data-text {
+    font-size: 10px;  
+  }
   
-  background-image: url('female.png');
+  .card__footer {
+    font-size: 12px;  
+  }
 }
 
-.resident-form__label-male:hover,
-.resident-form__label-female:hover {
-  transition: 0.5s;
-  opacity: 0.5;
+@media screen and (max-width: 390px) {
+  .card h3 {
+    font-size: 10px;  
+  }
+
+  .card__title {
+    font-size: 8px;  
+  }
+
+  .card__data-text {
+    font-size: 8px;  
+  }
+  
+  .card__footer {
+    line-height: 15px;
+    font-size: 8px;  
+    height: 50px;;
+  }
+
+  .add-arrow:after {
+    
+    top: 10px;
+    
 }
-
-.resident-form__label-radio {
-  white-space: nowrap;
-  display: inline-block;
-  transition: 0.5s;
-  margin: 20px 5px;
-  border-radius: 10px;
-  background: transparent;
-  color: #4a4a4a;  
-  padding: 2px 8px;
-  font-family: Arial;
-  font-size: 18px;
-  letter-spacing: 0;
-  cursor: pointer;
-}
-
-.resident-form__label-radio:hover {
-  background: #ff0000;
-  color: #ffffff;
-}
-
-.resident-form__radio-none-english:checked + .resident-form__label-none-english, 
-.resident-form__radio-low-english:checked + .resident-form__label-low-english,
-.resident-form__radio-middle-english:checked + .resident-form__label-middle-english,
-.resident-form__radio-hight-english:checked + .resident-form__label-hight-english,
-.resident-form__radio-native-english:checked + .resident-form__label-native-english,
-.resident-form__radio-last-two-been:checked + .resident-form__label-last-two-been,
-.resident-form__radio-last-five-been:checked + .resident-form__label-last-five-been,
-.resident-form__radio-last-ten-been:checked + .resident-form__label-last-ten-been,
-.resident-form__radio-no-been:checked + .resident-form__label-no-been {
-  background: #ff0000;
-  color: #ffffff;
-} 
-
-.resident-form__select {
-  padding: 5px;
-  margin: 20px 0;  
-  border-radius: 10px;
-  border: 1px solid #707070;
-  color: #4a4a4a;
-  width: 235px;
-  height: 35px;    
-}
-.resident-form__select--phone {  
-  width: 65px;  
-}
-
-
-
-.resident-form__select:focus {
-  outline: 0;
-}
-
-.resident-form__submit {
-  display: block;
-  margin: 0 auto;
+ 
 }

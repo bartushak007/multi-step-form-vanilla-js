@@ -17,6 +17,18 @@ document.querySelectorAll(".resident-form__container").forEach(container => {
     "js-first",
     "js-last"
   ];
+  const selectElementsArray = ["incam"];
+
+  const isRadioChecked = (field) => {
+    return Array.prototype.some.call(document.resident[field], (fieldElem) => {            
+      return fieldElem.checked; 
+    });  
+  }
+
+  // const isSelectChecked = (field) => {   
+  //   return !!document.resident[field].value;    
+  // }
+
   const formElemTypes = ['input', 'select'];
 
   let currentStep = 0;
@@ -43,8 +55,8 @@ document.querySelectorAll(".resident-form__container").forEach(container => {
   const isValid = current => {
     const inputs = getAllFormElements(formElemTypes, current);
 
-    return Array.prototype.every.call(inputs, input => {
-      return input.type !== "submit" ? !!input.value : true;
+    return Array.prototype.every.call(inputs, input => {         
+      return input.type === "radio" ? isRadioChecked(input.name) : input.type == "submit" ? true : !!input.value;
     });
   };
 
