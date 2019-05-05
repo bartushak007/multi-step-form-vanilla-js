@@ -107,44 +107,58 @@
             <div class="resident-form__step-block">
               <h3>What is your Full Name?</h3>
               <!-- placeholder -->
-              <input
-                type="text"
-                placeholder="first"
-                class="resident-form__form-element js-first-input"
-              />
-              <input
-                type="text"
-                placeholder="last"
-                class="resident-form__form-element js-last-input"
-              />
+              <div class="resident-form__input-container">
+                <input
+                  type="text"
+                  placeholder="first"
+                  class="resident-form__form-element js-first-input"
+                />
+                <span class="resident-form__input-container-error"
+                  >Enter first name</span
+                >
+              </div>
+              <div class="resident-form__input-container">
+                <input
+                  type="text"
+                  placeholder="last"
+                  class="resident-form__form-element js-last-input"
+                />
+                <span class="resident-form__input-container-error"
+                  >Enter second name</span
+                >
+              </div>
             </div>
             <div class="resident-form__step-block">
               <h3>What is you gender</h3>
 
               <div class="resident-form__label-radio-container">
-                <input
-                  type="radio"
-                  id="gender-male"
-                  value="men"
-                  name="gender"
-                  class="resident-form__radio-male-input js-gender-input radio-male"
-                />
-                <label
-                  for="gender-male"
-                  class="resident-form__label-male"
-                ></label>
-
-                <input
-                  type="radio"
-                  value="women"
-                  name="gender"
-                  id="gender-female"
-                  class="resident-form__radio-female-input js-gender-input radio-female"
-                />
-                <label
-                  for="gender-female"
-                  class="resident-form__label-female"
-                ></label>
+                <div class="resident-form__input-container">
+                  <input
+                    type="radio"
+                    id="gender-male"
+                    value="men"
+                    name="gender"
+                    class="resident-form__radio-male-input js-gender-input radio-male"
+                  />
+                  <label
+                    for="gender-male"
+                    class="resident-form__label-male"
+                  ></label>
+                  <input
+                    type="radio"
+                    value="women"
+                    name="gender"
+                    id="gender-female"
+                    class="resident-form__radio-female-input js-gender-input radio-female"
+                  />
+                  <label
+                    for="gender-female"
+                    class="resident-form__label-female"
+                  ></label>
+                  <span class="resident-form__input-container-error"
+                    >Enter gender</span
+                  >
+                </div>
               </div>
 
               <h3>Date of Birth</h3>
@@ -311,7 +325,6 @@
                   class="resident-form__label-radio resident-form__label-last-two-been"
                   >In the last 2 years</label
                 >
-
                 <input
                   type="radio"
                   value="In the last 5 years"
@@ -324,7 +337,6 @@
                   class="resident-form__label-radio resident-form__label-last-five-been"
                   >In the last 5 years</label
                 >
-
                 <input
                   type="radio"
                   value="Over 10 years ago"
@@ -337,7 +349,6 @@
                   class="resident-form__label-radio resident-form__label-last-ten-been"
                   >Over 10 years ago</label
                 >
-
                 <input
                   type="radio"
                   value="no"
@@ -645,7 +656,7 @@
                 How long have you been living in your current country of
                 residence?
               </h3>
-              <select class="resident-form__select" name="been">
+              <select class="resident-form__select js-been-input" name="been">
                 <option value="">Years In Country</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -702,7 +713,7 @@
             <div class="resident-form__step-block">
               <h3>Phone number</h3>
               <select
-                class="resident-form__select resident-form__select--phone"
+                class="resident-form__select resident-form__select--phone js-phonecode-input"
                 name="phone-code"
               >
                 <option value="">Country of Residence</option>
@@ -959,10 +970,13 @@
               </select>
               <input
                 type="phone"
-                class="resident-form__form-element resident-form__form-element--phone"
+                class="resident-form__form-element resident-form__form-element--phone js-phone-input"
               />
               <h3>E-mail address</h3>
-              <input type="email" class="resident-form__form-element" />
+              <input
+                type="email"
+                class="resident-form__form-element js-email-input"
+              />
               <input type="submit" class="resident-form__submit" />
             </div>
           </div>

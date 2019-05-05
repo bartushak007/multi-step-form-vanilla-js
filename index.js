@@ -15,7 +15,11 @@ document.querySelectorAll(".resident-form__container").forEach(container => {
     "js-birth",
     "js-live",
     "js-first",
-    "js-last"
+    "js-last",
+    "js-been",
+    "js-phonecode",
+    "js-phone",
+    "js-email"
   ];
   const selectElementsArray = ["incam"];
 
@@ -60,23 +64,26 @@ document.querySelectorAll(".resident-form__container").forEach(container => {
     return formElements;
   };
 
+  const addError = input => {
+    (input.type === "radio" && !isRadioChecked(input.name))
+    ? input.parentNode.classList.add('error')
+    : input.parentNode.classList.contains('error') && input.parentNode.classList.remove('error');
+    
+    (!(input.type === "radio" ? isRadioChecked(input.name) : input.type == "submit" ? true : !!input.value)) 
+    ? input.classList.add('error')
+    : input.classList.contains('error') && input.classList.remove('error');
+  };
+
+  const showErrors = (inputs) => {
+    Array.prototype.forEach.call(inputs, input => addError(input));
+  }
+
   const isValid = current => {
     const inputs = getAllFormElements(formElemTypes, current);
 
-    Array.prototype.forEach.call(inputs, input => {
-
-      (input.type === "radio" && !isRadioChecked(input.name))
-      ? input.parentNode.classList.add('error')
-      : input.parentNode.classList.contains('error') && input.parentNode.classList.remove('error');
-      
-      (!(input.type === "radio" ? isRadioChecked(input.name) : input.type == "submit" ? true : !!input.value)) 
-      ? input.classList.add('error')
-      : input.classList.contains('error') && input.classList.remove('error');
-      // console.log(input.parentNode)
-
-      
-      
-    });
+    
+    
+    showErrors(inputs);
 
 
     return Array.prototype.every.call(inputs, input => {
@@ -114,6 +121,9 @@ document.querySelectorAll(".resident-form__container").forEach(container => {
             const newValue = value
               ? value.charAt(0).toUpperCase() + value.slice(1)
               : "*****";
+
+            addError(target);
+            console.log(target);
 
             targetClassList.contains('radio-female') && useToggleClassName('card__gender-block--male', 'card__gender-block--female');  
             targetClassList.contains('radio-male') && useToggleClassName('card__gender-block--female', 'card__gender-block--male');            

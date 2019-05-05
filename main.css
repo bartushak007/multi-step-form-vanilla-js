@@ -74,7 +74,7 @@
   box-sizing: border-box;
   outline: none;
   color: #4a4a4a;
-  transition: 1s;
+  transition: 0.3s;
 }
 
 .resident-form__form-element--phone {
@@ -137,7 +137,7 @@
 .resident-form__label-radio-container {
   border: transparent solid;
   border-radius: 10px; 
-  transition: 1s;
+  transition: 0.3s;
   display: inline-block;
 }
 
@@ -404,8 +404,31 @@
   } 
 }
 
-.error {  
-  border: #ff0000 solid 1px;
+.error {
+  transition: 0.8s;  
+  border: #ff3737 solid 1px;
   border-radius: 10px;
-  box-shadow: 0px 0px 3px 1px #ff0000;  
+  box-shadow: 0px 0px 3px 1px #ff3737;  
+}
+
+.resident-form__input-container {
+  display: inline-block;
+  position: relative;
+}
+
+.resident-form__input-container-error {
+  transition: 0.5s;
+  opacity: 1;
+  font-size: 10px;
+  display: block;
+  position: absolute;
+  bottom: -2px;
+  right: 5px;
+  color: #ff3737;
+  
+}
+
+.resident-form__input-container-error--visible{
+  opacity: 1;
+  transition: 1s;
 }
