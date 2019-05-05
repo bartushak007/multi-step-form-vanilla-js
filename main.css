@@ -74,10 +74,12 @@
   box-sizing: border-box;
   outline: none;
   color: #4a4a4a;
+  transition: 1s;
 }
 
 .resident-form__form-element--phone {
-  width: 135px;
+  display: block;
+  margin: 20px auto;
 }
 
 .add-arrow {
@@ -95,6 +97,7 @@
   content: "<<<<<<<<<<<<<<<";
 }
 
+/* dont do it */
 .resident-form__form-container [type=radio] {
   position: absolute;
   width: 0;
@@ -131,6 +134,13 @@
   opacity: 0.5;
 }
 
+.resident-form__label-radio-container {
+  border: transparent solid;
+  border-radius: 10px; 
+  transition: 1s;
+  display: inline-block;
+}
+
 .resident-form__label-radio {
   white-space: nowrap;
   display: inline-block;
@@ -144,6 +154,7 @@
   font-size: 18px;
   letter-spacing: 0;
   cursor: pointer;
+  user-select: none;
 }
 
 .resident-form__label-radio:hover {
@@ -174,7 +185,8 @@
   height: 35px;    
 }
 .resident-form__select--phone {  
-  width: 65px;  
+  display: block;
+  margin: 20px auto;
 }
 
 .resident-form__select:focus {
@@ -203,7 +215,7 @@
 
 .card__container {
   width: 100%;
-  height: 318px;
+  min-height: 318px;
   background-image: linear-gradient(to right, #3acc72c4 10%, #b5f9e4d1 64%);
   position: relative;
   border-radius: 25px;
@@ -245,8 +257,7 @@
   text-align: left;
 }
 
-.card__gender-block {
-  /* transition: 1s; */
+.card__gender-block {  
   border-radius: 15px;
   background-color: #ffffffd3;  
   background-size: 80%;
@@ -339,12 +350,21 @@
 }
 
 @media screen and (max-width: 475px) {
+  .card__container {
+    min-height: 300px;
+  }
+
   .card h3 {
     font-size: 12px;  
   }
 
   .card__title {
     font-size: 10px;  
+  }
+
+  .card__gender-block {    
+    height: 120px;
+    margin: auto;
   }
 
   .card__data-text {
@@ -357,6 +377,10 @@
 }
 
 @media screen and (max-width: 390px) {
+  .card__container {
+    height: 258px;
+  }
+
   .card h3 {
     font-size: 10px;  
   }
@@ -375,10 +399,13 @@
     height: 50px;;
   }
 
-  .add-arrow:after {
-    
-    top: 10px;
-    
+  .add-arrow:after {    
+    top: 10px;    
+  } 
 }
- 
+
+.error {  
+  border: #ff0000 solid 1px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 3px 1px #ff0000;  
 }

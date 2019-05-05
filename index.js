@@ -38,6 +38,14 @@ document.querySelectorAll(".resident-form__container").forEach(container => {
     classList.add(newValue);
   }
 
+
+  /**
+   * призначення функції
+   * @param {*} formElementsArray 
+   * @param {*} container 
+   * 
+   * return-
+   */
   const getAllFormElements = (formElementsArray, container) => {
     let formElements = [];
 
@@ -55,8 +63,27 @@ document.querySelectorAll(".resident-form__container").forEach(container => {
   const isValid = current => {
     const inputs = getAllFormElements(formElemTypes, current);
 
-    return Array.prototype.every.call(inputs, input => {         
-      return input.type === "radio" ? isRadioChecked(input.name) : input.type == "submit" ? true : !!input.value;
+    Array.prototype.forEach.call(inputs, input => {
+
+      (input.type === "radio" && !isRadioChecked(input.name))
+      ? input.parentNode.classList.add('error')
+      : input.parentNode.classList.contains('error') && input.parentNode.classList.remove('error');
+      
+      (!(input.type === "radio" ? isRadioChecked(input.name) : input.type == "submit" ? true : !!input.value)) 
+      ? input.classList.add('error')
+      : input.classList.contains('error') && input.classList.remove('error');
+      // console.log(input.parentNode)
+
+      
+      
+    });
+
+
+    return Array.prototype.every.call(inputs, input => {
+      const result = input.type === "radio" ? isRadioChecked(input.name) : input.type == "submit" ? true : !!input.value;  
+      
+
+      return result;
     });
   };
 
