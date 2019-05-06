@@ -229,9 +229,9 @@
 }
 
 .resident-form__button-next--eligibility {
+  display: inline-block;
+  padding: 10px;
   width: auto;
-  padding-left: 7px;
-  padding-right: 7px;
 }
 
 .resident-form__button-next:hover,

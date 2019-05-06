@@ -49,7 +49,7 @@ document.querySelectorAll(".resident-form__container").forEach(container => {
 
   const toggleClassName = ({ classList }) => (oldValue, newValue) => {
     classList.contains(oldValue) && classList.remove(oldValue);
-    classList.add(newValue);
+    newValue && classList.add(newValue);
   };
 
   /**
@@ -161,7 +161,7 @@ document.querySelectorAll(".resident-form__container").forEach(container => {
 
   const inputslistener = () => {
     getAllFormElements(formElemTypes, container).forEach(input => {
-      // input.required = false;      
+      // input.required = false;
 
       input.addEventListener(
         "input",
@@ -208,15 +208,17 @@ document.querySelectorAll(".resident-form__container").forEach(container => {
 
   inputslistener();
 
-  buttonNext.forEach(btn => {
-   
-    btn.addEventListener("click", () => {
-      if (
-        currentStep < length - 1 &&
-        isValid(formSelector.children[currentStep])
-      ) {
-        
+  const removeClassName = (container, name, removeName) => {
+    console.log(name);
+    container.querySelector(`.${name}`) &&
+      container.querySelector(`.${name}`).classList.remove(removeName);
+  };
 
+  buttonNext.forEach(btn => {
+    
+    btn.addEventListener("click", () => {
+      if (currentStep < length - 1 &&
+        isValid(formSelector.children[currentStep])) {
         nextStep(
           position => position - 100,
           container.querySelector(".resident-form__form").style.transform || 0
@@ -224,15 +226,15 @@ document.querySelectorAll(".resident-form__container").forEach(container => {
         currentStep++;
         setProgressBar(currentStep);
         console.log(currentStep);
-
-        if( currentStep === 0 || currentStep === length-1) {
-          container.querySelector('.js-button-next').classList.add('hidden');
-        } else {
-          console.log(45454545)
-          removeElementHtml(container, "js-button-next");          
-        }
       }
-    })
+      if (currentStep === 0 || currentStep === length - 1) {
+        container.querySelector(".js-button-next").classList.add("hidden");
+        
+      } else if (!(currentStep === 0 || currentStep === length - 1)) {
+        removeClassName(container, "js-button-next", "hidden");
+        removeClassName(container, "js-button-prev", "hidden");
+      }
+    });
   });
 
   buttonPrev.addEventListener("click", () => {
@@ -243,22 +245,14 @@ document.querySelectorAll(".resident-form__container").forEach(container => {
       );
       currentStep--;
       setProgressBar(currentStep);
+    }
 
-      if( currentStep === 0 || currentStep === length-1) {
-        container.querySelector('.js-button-next').classList.add('hidden');
-      } else {
-        console.log(45454545)
-        removeElementHtml(container, "js-button-next");          
-      }
+    if (currentStep === 0 || currentStep === length - 1) {
+      container.querySelector(".js-button-next").classList.add("hidden");
+    } else if (!(currentStep === 0 || currentStep === length - 1)) {
+      removeClassName(container, "js-button-next", "hidden");
     }
   });
-
-  // if( currentStep === 0 || currentStep === length-1) {
-  //   container.querySelector('.js-button-next').classList.add('hidden');
-  // } else {
-  //   container.querySelector('.js-button-next').classList.contains('hidden') 
-  //   && container.querySelector('.js-button-next').classList.remove('hidden')
-  // }
 });
 
 document.querySelector(".form").addEventListener("submit", e => {
