@@ -1,4 +1,788 @@
-.resident-form__container * {
+body {
+  font-family: sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.resident-form__container *,
+.second-resident-form__container * {
+  box-sizing: border-box !important;
+  margin: 0;
+  padding: 0;
+}
+
+.resident-form__container {
+  text-align: center;
+  margin-top: 150px;
+}
+
+.resident-form__title {
+  text-align: center;
+  margin-bottom: 27px;
+  font-size: 30px;
+  font-family: Arial;
+}
+
+.resident-form__progress {
+  border-radius: 3px;
+  background: #dcdcdc;
+  margin: 20px;
+}
+
+.resident-form__progress--short {
+  max-width: 490px;
+  margin: 0 auto;
+}
+
+.resident-form__progress-bar {
+  width: 0%;
+  border-radius: 3px;
+  transition: 1s;
+  height: 12px;
+  background: #ff3737;
+  position: relative;
+}
+
+.resident-form__progress-bar-percent {
+  color: #ff3737;
+  font-weight: 700;
+  font-size: 10px;
+  position: absolute;
+  right: 1px;
+  bottom: 0px;
+  transition: 1s;
+  line-height: 11px;
+}
+
+.resident-form__progress-bar-percent--yellow {
+  color: #e5af00;
+}
+
+.resident-form__progress-bar--yellow {
+  background: #e5af00;
+}
+
+.resident-form__form-container {
+  text-align: left;
+  margin: 10px auto;
+  overflow: hidden;
+  max-width: 800px;
+  position: relative;
+}
+
+.resident-form__form {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  transform: translateX(0%);
+  transition: 1s;
+}
+
+.resident-form__form--top {
+  margin-top: 25px;
+  align-items: flex-start;
+}
+
+.resident-form__step-block {
+  text-align: center;
+  width: 100%;
+  flex-shrink: 0;
+  overflow: hidden !important;
+}
+
+.resident-form__step-block-title {
+  margin: 5px auto;
+  font-size: 16px;
+  font-family: Arial;
+}
+
+.resident-form__form-element {
+  padding: 5px 15px !important;
+  font-size: 15px;
+  max-width: 235px;
+  height: 35px !important;
+  border: 1px solid #707070 !important;
+  margin: 20px 0 10px;
+  margin: 8px !important;
+  display: inline-block;
+  border-radius: 11px !important;
+  background: #fff;
+  box-sizing: border-box;
+  color: #4a4a4a !important;
+  transition: 0.3s !important;
+}
+
+.resident-form__form-element--phone {
+  display: block;
+  margin: 20px auto;
+}
+
+.resident-form__input-container {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 auto;
+  border: solid 1px transparent;
+}
+
+.resident-form__input-container--block {
+  display: block;
+  margin: 0 auto;
+}
+
+.resident-form__input-container--inlineBlock {
+  display: inline-block;
+}
+
+.resident-form__radio-hidden {
+  position: absolute;
+  width: 0;
+  height: 0;
+  right: 3000px;
+  opacity: 0;
+}
+
+.resident-form__radio-male-input:checked + .resident-form__label-male,
+.resident-form__radio-female-input:checked + .resident-form__label-female {
+  opacity: 0.5;
+}
+
+.resident-form__label-male,
+.resident-form__label-female {
+  border-radius: 15px;
+  display: inline-block;
+  background-color: #ffffff;
+  background-image: url("https://usagreencard.online/wp-content/uploads/2019/05/male.png");
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 120px;
+  height: 120px;
+}
+
+.resident-form__label-female {
+  background-image: url("https://usagreencard.online/wp-content/uploads/2019/05/female.png");
+}
+
+.resident-form__label-male:hover,
+.resident-form__label-female:hover {
+  transition: 0.5s;
+  opacity: 0.5;
+}
+
+.resident-form__label-radio-container {
+  border: transparent solid 1px;
+  border-radius: 10px;
+  transition: 0.3s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.resident-form__label-radio {
+  white-space: nowrap;
+  display: inline-block;
+  transition: 0.5s;
+  margin: 5px;
+  border-radius: 10px;
+  background: transparent;
+  color: #4a4a4a;
+  padding: 2px 8px;
+  font-family: Arial;
+  font-size: 18px;
+  letter-spacing: 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+.resident-form__label-radio:hover {
+  background: #ff0000;
+  color: #ffffff;
+}
+
+.resident-form__radio-none-english:checked + .resident-form__label-none-english,
+.resident-form__radio-low-english:checked + .resident-form__label-low-english,
+.resident-form__radio-middle-english:checked
+  + .resident-form__label-middle-english,
+.resident-form__radio-hight-english:checked
+  + .resident-form__label-hight-english,
+.resident-form__radio-native-english:checked
+  + .resident-form__label-native-english,
+.resident-form__radio-last-two-been:checked
+  + .resident-form__label-last-two-been,
+.resident-form__radio-last-five-been:checked
+  + .resident-form__label-last-five-been,
+.resident-form__radio-last-ten-been:checked
+  + .resident-form__label-last-ten-been,
+.resident-form__radio-no-been:checked + .resident-form__label-no-been {
+  background: #ff0000;
+  color: #ffffff;
+}
+
+.resident-form__select {
+  padding: 5px;
+  margin: 8px;
+  border-radius: 10px;
+  border: 1px solid #707070;
+  color: #4a4a4a;
+  width: 235px;
+  height: 35px;
+}
+.resident-form__select--phone {
+  display: block;
+  margin: 20px auto;
+}
+
+.resident-form__select:focus {
+  outline: 0;
+}
+
+.resident-form__submit {
+  display: block;
+  margin: 5px auto 0;
+  color: #fff !important;
+  background: #ff3737 !important;
+  padding: 14px 17px !important;
+  border-radius: 15px;
+  border: 0 !important;
+  font-size: 19px !important;
+}
+
+.resident-form__submit--yellow {
+  background: #e5af00 !important;
+  color: #000 !important;
+}
+
+.resident-form__button-next,
+.resident-form__button-prev {
+  transition: 0.5s;
+  height: 50px;
+  display: block;
+  border-radius: 10px;
+  background: #009245;
+  color: #fff;
+  border: 0;
+  width: 110px;
+  font-family: Arial;
+  font-size: 29px;
+  text-align: center;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.resident-form__button-next--red {
+  background: #ff3737;
+}
+
+.resident-form__button-next--eligibility {
+  display: inline-block;
+  padding: 4px;
+  width: auto;
+}
+
+.resident-form__button-next:hover,
+.resident-form__button-prev:hover {
+  opacity: 0.5;
+}
+
+.resident-form__button-prev {
+  background: #ffffff;
+  color: #000000;
+}
+
+.resident-form__button-prev::before {
+  content: "<<";
+}
+.resident-form__button-next--red {
+  background: #ff3737;
+}
+
+/* card  card card card*/
+
+.card {
+  max-width: 400px;
+  font-family: Arial;
+  margin: 0 auto;
+  background-color: #ffffff;
+  background-image: url("https://usagreencard.online/wp-content/uploads/2019/05/usmap.png");
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-position: 48px, 39px;
+  position: relative;
+}
+
+.card--yellow {
+  background: none !important;
+}
+
+.card__container {
+  width: 100%;
+  background-image: linear-gradient(45deg, #3acc72c4 10%, #b5f9e4d1 64%);
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.card__container--yellow {
+  background: url("https://usagreencard.online/wp-content/uploads/2019/05/yellowCard.png") !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+}
+
+.card h3 {
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 7px;
+  font-size: 14px;
+}
+
+.card__all-data {
+  margin: 0 16px;
+  position: relative;
+}
+
+.card__all-data:after {
+  content: "";
+  background: url("https://usagreencard.online/wp-content/uploads/2019/05/printfinger.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: block;
+  width: 52px;
+  height: 52px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: rotate(30deg);
+}
+
+.card__all-data-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.card__name {
+  margin: 6px 0 0;
+  text-align: left;
+}
+
+.card__gender-block {
+  border-radius: 15px;
+  background-color: #ffffffd3;
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 96px;
+  height: 128px;
+}
+
+.card__gender-block--male {
+  background-image: url("https://usagreencard.online/wp-content/uploads/2019/05/male.png");
+}
+
+.card__gender-block--female {
+  background-image: url("https://usagreencard.online/wp-content/uploads/2019/05/female.png");
+}
+
+.card__data-block {
+  flex-grow: 1;
+  margin-left: 8px;
+  text-align: left;
+}
+
+.card__insa {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.card__column {
+  width: calc(100% / 3);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 36px;
+}
+
+.card__column--long {
+  width: calc((100% / 3) * 2);
+}
+
+.card__title {
+  font-size: 10px;
+  font-weight: 600;
+  color: #2f2eef;
+  margin: 3px 0;
+  position: relative;
+}
+
+.card__title-last,
+.card__title-first {
+  min-width: 60px;
+  display: inline-block;
+}
+
+.card__title-last:before,
+.card__title-first:before {
+  content: "First Name";
+  position: absolute;
+  bottom: 10px;
+  color: #222222;
+}
+
+.card__title-last:before {
+  content: "Last Name";
+}
+
+.card__title--bold {
+  font-weight: bold;
+}
+
+.card__title--red {
+  color: #ff0000;
+}
+
+.card__data-text {
+  font-size: 10px;
+}
+
+.card__footer {
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 20px;
+  width: 100%;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 5px;
+  background-image: linear-gradient(to right, #3acc728c 43%, #b5f9e485 93%);
+  padding: 5px 20px 10px;
+}
+
+.card__footer-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.opacity {
+  opacity: 0;
+}
+
+/* resident-card */
+
+.resident-card {
+  max-width: 600px;
+  font-family: Arial;
+  margin: 0 auto;
+  user-select: none;
+}
+
+.resident-card__container {
+  background-image: url("https://usagreencard.online/wp-content/uploads/2019/05/yellowCard-1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.resident-card__top-title {
+  text-align: center;
+  text-transform: uppercase;
+  margin: 18px 0;
+  font-size: 19px 0 25px;
+}
+
+.resident-card__all-data {
+  margin: 0 16px;
+  position: relative;
+}
+
+.resident-card__all-data:after {
+  content: "";
+  background: url(https://usagreencard.online/wp-content/uploads/2019/05/printfinger.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: block;
+  width: 79px;
+  height: 79px;
+  position: absolute;
+  bottom: 0;
+  right: 25px;
+}
+
+.resident-card__all-data-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 20px 0;
+}
+
+.resident-card__name {
+  margin: 4px 0;
+  text-align: left;
+  display: flex;
+}
+
+.resident-card__name input {
+  width: 30%;
+}
+
+.resident-card__gender-block {
+  border-radius: 15px;
+  background-color: #ffffffd3;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 28%;
+  height: 197px;
+  border: transparent solid 2px;
+  position: relative;
+}
+
+.resident-card__gender-block--male,
+.resident-card__gender-block--female {
+  border-radius: 15px;
+  background-color: #ffffffd3;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 28%;
+  height: 197px;
+  border: #6200e8 solid 2px;
+  position: relative;
+}
+
+.resident-card__gender-block--male:after,
+.resident-card__gender-block--female:after {
+  content: "\2714";
+  border-radius: 25px;
+  display: block;
+  background: #7000fffa;
+  width: 32px;
+  height: 32px;
+  font-size: 23px;
+  color: #ffffff;
+  position: absolute;
+  bottom: -6px;
+  right: -6px;
+}
+
+.resident-card__gender-block--male {
+  background-image: url("https://usagreencard.online/wp-content/uploads/2019/05/maleColor.png");
+}
+
+.resident-card__gender-block--female {
+  background-image: url("https://usagreencard.online/wp-content/uploads/2019/05/femaleColor.png");
+}
+
+.resident-card__data-block {
+  width: 67%;
+  margin-left: 8px;
+  text-align: left;
+}
+
+.resident-card__insa {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.resident-card__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.resident-card__column {
+  width: calc(100% / 3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin: 5px 10px 5px 0;
+}
+
+.resident-card__column--short {
+  width: calc(100% / 4);
+}
+
+.resident-card__column--long {
+  width: calc(100% / 2);
+}
+
+.resident-card__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2f2eef;
+  margin: 3px 0;
+}
+
+.resident-card__title--bold {
+  font-weight: bold;
+}
+
+.resident-card__input,
+.resident-card__select {
+  margin-bottom: 0px !important;
+  line-height: 20px !important;
+  border-radius: 5px !important;
+  font-size: 14px !important;
+  background: transparent !important;
+  border: solid #000000 1px !important;
+  padding: 4px 2px !important;
+}
+
+.resident-card__input--date {
+  text-align: center;
+}
+
+.resident-card__footer {
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 20px;
+  width: 100%;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 5px;
+  background-image: linear-gradient(to right, #3acc728c 43%, #b5f9e485 93%);
+  padding: 5px 20px 10px;
+}
+
+.resident-card__footer-row {
+  display: flex;
+  justify-content: space-around;
+}
+.resident-form__container .error,
+.second-resident-form__container .error {
+  transition: 0.8s !important;
+  border: #ff3737 solid 1px !important;
+  border-radius: 5px !important;
+  box-shadow: 0px 0px 3px 1px #ff3737 !important;
+  background: #ff37371c !important;
+}
+
+.error-yellow {
+  transition: 0.8s !important;
+  box-shadow: none !important;
+  background: #ff37374d !important;
+}
+
+.error-elem {
+  display: block;
+  margin-left: 10px;
+  color: #ff3737;
+  font-size: 10px;
+  text-align: left;
+}
+
+.hidden {
+  display: none;
+}
+
+.done:after {
+  content: "100%";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: #fa2a2b;
+  font-size: 60px;
+}
+
+.done:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #fff9;
+  z-index: 1;
+}
+
+.checkbox {
+  display: block;
+  width: 19px;
+  height: 15px;
+  visibility: visible;
+  opacity: 1;
+  background: #f5f1f1;
+  position: relative;
+  top: 17px;
+  border-radius: 3px;
+  border: 1px solid #3333335c;
+}
+
+.checkbox:checked {
+  background: #555;
+}
+
+@media screen and (max-width: 420px) {
+  .card h3 {
+    font-size: 10px;
+  }
+
+  .card__title {
+    font-size: 8px;
+  }
+
+  .card__data-text {
+    font-size: 8px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .resident-form__progress--short {
+    width: 80%;
+  }
+
+  .resident-card__all-data::after {
+    right: 0;
+  }
+  .card__footer {
+    padding: 5px 5px 5px 10px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .resident-card__all-data-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .resident-card__data-block {
+    width: 80%;
+  }
+
+  .resident-card__gender-block {
+    width: 197px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .resident-card__data-block {
+    width: 100%;
+  }
+}
+
+
+/* .resident-form__container * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -479,3 +1263,4 @@
   display: none;
 }
 
+ */
